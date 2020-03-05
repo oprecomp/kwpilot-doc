@@ -1,32 +1,62 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
+# Compiled source 
+*.com
+*.class
 *.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
 *.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
+.directory
+*.pyc
+tags
 
 # Executables
-*.exe
 *.out
-*.app
+*.hex
+
+#Latex
+*.log
+*.aux
+*.backup
+*.toc
+*._aux
+*._log
+*.project.vim
+*.synctex.gz
+*.synctex.gz(busy)
+*.fls
+*.fdb*
+*.bbl
+*.blg
+
+*.bcf
+*.idx
+*.ind
+*.ilg
+*.ist
+*.lof
+*.lol
+*.lot
+*.mw
+*.run.xml 
+
+*.acn
+*.alg
+*.acr
+
+git-ref.tex 
+
+#vim 
+*.swp
+
+# backup
+*.bak
+*.sav
+
+# Libre Office
+*.~lock.*
+
+#Folders 
+
+build/
+sphinx/
+_build/
+
+

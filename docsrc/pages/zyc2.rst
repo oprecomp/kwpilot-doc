@@ -178,8 +178,8 @@ A last but important step is to adjust or review the security group rules associ
 .. image:: ../images/fig16.png
 
 
-Accessing your VMs
-------------------
+Accessing VMs
+-------------
 There are two ways of accessing your virtual machines:
 
 1. One is through the Console interface of the OpenStack dashboard.
@@ -200,6 +200,7 @@ To use the graphical VNC session you must enable port forwarding with a command 
           ssh -L 5901:localhost:5901 -N -f -l ubuntu 10.12.2.100
 
 This will forward port 5901 from/to your localhost. You can then connect to your localhost:5901 using your favorite VNC client.
+
 
 
 kwPilot Demonstrator on ZYC2
