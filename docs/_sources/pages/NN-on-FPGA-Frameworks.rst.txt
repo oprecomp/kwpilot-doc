@@ -1,0 +1,3 @@
+
+
+.. mdinclude:: ../../notes/NN-on-FPGA-Frameworks.md

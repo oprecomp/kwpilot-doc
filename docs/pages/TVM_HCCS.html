@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TVM setup on HCCS &mdash; kwPilot v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="NN-on-FPGA-Frameworks.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> kwPilot
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">TVM setup on HCCS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#environment-on-host">Environment on Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-of-hccs-tvm-development-environment">Setup of HCCS_TVM development environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#vta-test">VTA Test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#on-host">On Host</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#on-pynq-devices">On PYNQ Devices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#visualization">Visualization</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">kwPilot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>TVM setup on HCCS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/TVM_HCCS.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tvm-setup-on-hccs">
+<span id="installation"></span><h1>TVM setup on HCCS<a class="headerlink" href="#tvm-setup-on-hccs" title="Permalink to this headline">¶</a></h1>
+<p>We have setup TVM on a single PC node on K211 with 2 PYNQ boards with VTA overlays.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 25%" />
+<col style="width: 6%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Node</p></td>
+<td><p>Device</p></td>
+<td><p>TVM</p></td>
+<td><p>Pynq image</p></td>
+</tr>
+<tr class="row-even"><td><p>poltera  9.4.68.178</p></td>
+<td><p>PYNQ1/2 192.168.2.98/99</p></td>
+<td><p>v0.5</p></td>
+<td><p>v2.4 (<a class="reference external" href="https://github.com/Xilinx/PYNQ/releases">https://github.com/Xilinx/PYNQ/releases</a>)</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="environment-on-host">
+<h2>Environment on Host<a class="headerlink" href="#environment-on-host" title="Permalink to this headline">¶</a></h2>
+<p>Consider to add the following lines to your <cite>.bashrc</cite>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$TVM_HOME</span>/python:<span class="nv">$TVM_HOME</span>/topi/python:<span class="nv">$TVM_HOME</span>/nnvm/python:<span class="nv">$TVM_HOME</span>/vta/python:<span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$TVM_HOME</span>/vta/python:<span class="si">${</span><span class="nv">PYTHONPATH</span><span class="si">}</span>
+
+
+<span class="nb">export</span> <span class="nv">XILINX_ROOT</span><span class="o">=</span>/tools/Xilinx
+<span class="nb">export</span> <span class="nv">XILINX_VERSION</span><span class="o">=</span><span class="m">2018</span>.3
+<span class="nb">source</span> <span class="nv">$XILINX_ROOT</span>/Vivado/<span class="nv">$XILINX_VERSION</span>/.settings64-Vivado.sh
+
+<span class="nb">export</span> <span class="nv">VTA_PYNQ_RPC_HOST</span><span class="o">=</span><span class="m">192</span>.168.2.98
+<span class="nb">export</span> <span class="nv">VTA_PYNQ_RPC_PORT</span><span class="o">=</span><span class="m">9091</span>
+<span class="nb">export</span> <span class="nv">TVM_TRACKER_HOST</span><span class="o">=</span><span class="m">192</span>.168.2.1
+<span class="nb">export</span> <span class="nv">TVM_TRACKER_PORT</span><span class="o">=</span><span class="m">9190</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Don’t forget <code class="docutils literal notranslate"><span class="pre">$TVM_HOME/vta/pyton</span></code> since it is not mentioned in the usual TVM tutorial.</p>
+</div>
+<p>To access the PYNQ boards with ssh-keys, download the private keys from <a class="reference external" href="https://ibm.box.com/s/3l4gw8gp3fu7k0klzfe8mlgr8qc3uc8i">here</a> and copy it to your home on <code class="docutils literal notranslate"><span class="pre">poltera</span></code>.
+Additionally, add this to <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Host pynq1
+  HostName <span class="m">192</span>.168.2.98
+  User xilinx
+  IdentityFile ~/.ssh/id_draico_dev
+
+Host pynq2
+  HostName <span class="m">192</span>.168.2.99
+  User xilinx
+  IdentityFile ~/.ssh/id_draico_dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-of-hccs-tvm-development-environment">
+<h2>Setup of HCCS_TVM development environment<a class="headerlink" href="#setup-of-hccs-tvm-development-environment" title="Permalink to this headline">¶</a></h2>
+<p>In order to do our own development on TVM (and publish later), we created our own fork: <a class="reference external" href="https://github.ibm.com/cloudFPGA/hccs_tvm">https://github.ibm.com/cloudFPGA/hccs_tvm</a></p>
+<ol class="arabic simple">
+<li><p>Follow the setup of <code class="docutils literal notranslate"><span class="pre">virutalenv</span></code> in the Readme <a class="reference external" href="https://github.ibm.com/cloudFPGA/hccs_tvm/blob/master/README.md">here</a>.</p></li>
+<li><p>Execute <a class="reference internal" href="#id4" id="id2"><span>[this]</span></a> and <a class="reference internal" href="#id4" id="id3"><span>[this]</span></a> setup with your local clone.
+In summary:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir build
+cp cmake/config.cmake build/
+which llvm-config-9 <span class="c1">#copy result!</span>
+vim build/config.cmake
+<span class="c1">#-&gt; change USE LLVM to (around line 104) and UNCOMMENT it</span>
+  set<span class="o">(</span>USE_LLVM /usr/bin/llvm-config-9<span class="o">)</span>
+<span class="nb">cd</span> build
+cmake ..
+make -j4 <span class="c1"># or how many cores you want to use</span>
+<span class="c1"># will take some time</span>
+</pre></div>
+</div>
+<dl class="citation">
+<dt class="label" id="this"><span class="brackets">this</span></dt>
+<dd><p><a class="reference external" href="https://docs.tvm.ai/install/from_source.html#build-the-shared-library">https://docs.tvm.ai/install/from_source.html#build-the-shared-library</a></p>
+</dd>
+<dt class="label" id="id4"><span class="brackets">this</span></dt>
+<dd><p><a class="reference external" href="https://docs.tvm.ai/install/from_source.html#python-package-installation">https://docs.tvm.ai/install/from_source.html#python-package-installation</a></p>
+</dd>
+</dl>
+<ol class="arabic simple" start="3">
+<li><p>Done, now run the test below</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="vta-test">
+<h1>VTA Test<a class="headerlink" href="#vta-test" title="Permalink to this headline">¶</a></h1>
+<p>In a minimum setup we will need to open 4 terminals in the following order 1-&gt;2-&gt;3-&gt;4 (1,2,4 on host, 3 on PYNqs):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Host                                    Device
+------------------------------          ------------------------------
+<span class="p">|</span>                            <span class="p">|</span>   rpc    <span class="p">|</span>                            <span class="p">|</span>
+<span class="p">|</span> <span class="m">1</span>. Start RPC Tracker       <span class="p">|</span>   &lt;--&gt;   <span class="p">|</span> <span class="m">3</span>. Start RPC Server        <span class="p">|</span>
+<span class="p">|</span> <span class="m">2</span>. Start RPC Tracker Query <span class="p">|</span>          <span class="p">|</span>                            <span class="p">|</span>
+<span class="p">|</span> <span class="m">4</span>. Run tutorial            <span class="p">|</span>          <span class="p">|</span>                            <span class="p">|</span>
+------------------------------          ------------------------------
+</pre></div>
+</div>
+<div class="section" id="on-host">
+<h2>On Host<a class="headerlink" href="#on-host" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure <code class="docutils literal notranslate"><span class="pre">TVM_HOME</span></code> and <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> are set correctly in your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Start RPC tracker:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">poltera</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">your/hccs_tvm/clone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">py_tvm/bin/activate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">tvm.exec.rpc_tracker</span> <span class="pre">--host=0.0.0.0</span> <span class="pre">--port=9190</span></code></p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Query the tracker:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">poltera</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">your/hccs_tvm/clone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">py_tvm/bin/activate</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">watch</span> <span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">tvm.exec.query_rpc_tracker</span> <span class="pre">--host=0.0.0.0</span> <span class="pre">--port=9190</span></code></p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Run examplary code tutorial</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">poltera</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">your/hccs_tvm/clone</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">py_tvm/bin/activate</span></code></p></li>
+<li><dl class="simple">
+<dt>A 2d convolution</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">.vta/tests/python/integration/test_benchmark_topi_conv2d.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Autotuning</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">./tutorials/autotune</span></code></p></li>
+<li><p>Tuning for Nano CPU: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">tune_relay_arm.py</span></code></p></li>
+<li><p>Tuning for PYNQ VTA: <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">tune_relay_vta.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="on-pynq-devices">
+<h2>On PYNQ Devices<a class="headerlink" href="#on-pynq-devices" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Considering tvm runtime installation at <strong>/home/xilinx/tvm</strong> for PYNQs and <strong>/home/did/tvm</strong> for Jetson</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Start RPC server:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>Connect to poltera</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">poltera</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Connect to devices through poltera</dt><dd><ul>
+<li><p>PYNQ 1: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">xilinx&#64;192.168.2.98</span></code> (or, with the ssh config above: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pynq1</span></code>)</p></li>
+<li><p>PYNQ 2: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">xilinx&#64;192.168.2.99</span></code> (<code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pynq2</span></code>)</p></li>
+<li><p>Jetson Nano: <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">didx&#64;192.168.2.100</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Start RPC server on device</dt><dd><ul>
+<li><p>PYNQ: <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/home/xilinx/tvm/apps/vta_rpc/start_rpc_server_to_tracker.py</span></code>  (Change <code class="docutils literal notranslate"><span class="pre">fleet</span></code> to tracker URL)</p></li>
+<li><p>Nano: <code class="docutils literal notranslate"><span class="pre">`python3</span> <span class="pre">-m</span> <span class="pre">tvm.exec.rpc_server</span> <span class="pre">--tracker</span> <span class="pre">192.168.2.1:9190</span> <span class="pre">--key=nano</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="visualization">
+<h1>Visualization<a class="headerlink" href="#visualization" title="Permalink to this headline">¶</a></h1>
+<dl class="simple">
+<dt>We are using <a class="reference external" href="https://github.com/lutzroeder/netron">netron</a> to visualize neural network models.</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wget</span> <span class="pre">https://s3.amazonaws.com/onnx-model-zoo/resnet/resnet18v1/resnet18v1.onnx</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">netron</span> <span class="pre">./resnet18v1.onnx</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="NN-on-FPGA-Frameworks.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, OPRECMOP
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
