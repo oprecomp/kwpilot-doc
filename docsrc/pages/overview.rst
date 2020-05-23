@@ -20,7 +20,7 @@
 Overview
 ########
 
-This page describes the preliminary version of the developed system architecture for the OPRECOMP kW platform (new).
+This page describes the preliminary version of the developed system architecture for the OPRECOMP kW platform.
 
 The goal is to develop one computation node of an HPC system, based on a high-performance processing node (IBM POWER 8/9) and an array of interconnected controllable precision processors.
 The OPRECOMP kW demonstrator platform provides an evaluation framework to investigate scalability and functionality of the software stack. This platform is one node of an HPC system with transprecision capabilities.
@@ -46,13 +46,9 @@ The development of the OPRECOMP kw-pilot is systematically developed in three pi
 * The kw-pilot Cloud Development Kit (CDK) integrates the kw-pilot platform to a cloud infrastructure of IBM.
 
 
-kwHDK
-=====
-.. todo:: kwHDK
+.. mdinclude:: ./hdk.md
 
-kwSDK
-=====
-.. todo:: kwSDK
+.. mdinclude:: ./sdk.md
 
 kwCDK
 =====
