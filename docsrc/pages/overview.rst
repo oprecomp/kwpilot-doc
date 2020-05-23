@@ -20,7 +20,7 @@
 Overview
 ########
 
-This page describes the preliminary version of the developed system architecture for the OPRECOMP kW platform.
+This page describes the preliminary version of the developed system architecture for the OPRECOMP kW platform (new).
 
 The goal is to develop one computation node of an HPC system, based on a high-performance processing node (IBM POWER 8/9) and an array of interconnected controllable precision processors.
 The OPRECOMP kW demonstrator platform provides an evaluation framework to investigate scalability and functionality of the software stack. This platform is one node of an HPC system with transprecision capabilities.

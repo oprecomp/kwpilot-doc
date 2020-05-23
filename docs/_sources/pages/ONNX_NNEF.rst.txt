@@ -1,4 +1,0 @@
-
-
-
-.. mdinclude:: ../../notes/ONNX_NNEF.md

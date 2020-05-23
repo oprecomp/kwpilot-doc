@@ -1,4 +1,0 @@
-
-
-
-.. mdinclude:: ../../notes/FPGA-evaluation.md
