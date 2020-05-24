@@ -2,6 +2,8 @@
 
 The repository with the approrpiate files for kwHDK is [PowerPULP](https://iis-git.ee.ethz.ch/oprecomp/powerpulp).
 
+`git clone git@iis-git.ee.ethz.ch:oprecomp/powerpulp.git`
+
 This repository contains PowerPULP, a PULP system attached to a IBM POWER8/9 machine via the CAPI interface. We currently support the following combinations:
 
 - board `ad8k5`, design `xcku115`, part `xcku115-flva1517-2-e`
@@ -55,4 +57,8 @@ Then, you'll need three terminals to do the following:
 
 1. First, start the RTL simulation with `scripts/vsim/run_pslse.sh` (or `scripts/vsim/run_pslse.tcl` if you're already in vsim), and run it (`run -all`). This will open a server on a local port that a pslse instance can connect to. Simulation time will not advance here unless started through this port.
 2. In a second terminal, launch `pslse` which will connect to the simulator and in turn offer the pslse server on another port. See instructions on building pslse in the `capi` repository.
-3. Lastly, run your host application in a third 
+3. Lastly, run your host application in a third
+
+## Bitstreams
+
+- Enable divsqrt, add 1cluster mapping: https://iis-git.ee.ethz.ch/oprecomp/powerpulp/tree/master/mappings/1clu_8core
