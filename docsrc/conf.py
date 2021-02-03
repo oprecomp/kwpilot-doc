@@ -25,7 +25,7 @@ copyright = '2020, OPRECOMP'
 author = 'Dionysios Diamantopoulos'
 
 # The short X.Y version
-version = ''
+version = '2.0'
 # The full version, including alpha/beta/rc tags
 release = 'v0.1'
 
