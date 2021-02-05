@@ -1,4 +1,4 @@
-# kwHDK
+## kwHDK
 
 The repository with the approrpiate files for kwHDK is [PowerPULP](https://iis-git.ee.ethz.ch/oprecomp/powerpulp).
 
@@ -9,7 +9,7 @@ This repository contains PowerPULP, a PULP system attached to a IBM POWER8/9 mac
 - board `ad8k5`, design `xcku115`, part `xcku115-flva1517-2-e`
 - board `adku3`, design `xcku060`, part `xcku060-ffva1156-2-e`
 
-## Getting Started
+### Getting Started
 
 This project uses bender [1] for dependency management (kind of), so make sure that is installed if you want to change IPs. To get started, do the following:
 
@@ -21,7 +21,7 @@ Set the following environment variables to something reasonable for your setup:
 - `export VOPT="vopt-10.7b -64"`
 - `export VIVADO="vivado-2019.1.1 vivado"`
 
-## Flow
+### Flow
 
 To synthesize and implement the design for an FPGA, proceed as follows:
 
@@ -34,7 +34,7 @@ To synthesize and implement the design for an FPGA, proceed as follows:
 
 Refer to `scripts/end_to_end.sh` for a full end-to-end example. The outbut `*.bit` and `*.bin` file can then be used to flash the corresponding FPGA card.
 
-## Simulation
+### Simulation
 
 The module hierarchy is structured as follows:
 
@@ -59,7 +59,7 @@ Then, you'll need three terminals to do the following:
 2. In a second terminal, launch `pslse` which will connect to the simulator and in turn offer the pslse server on another port. See instructions on building pslse in the `capi` repository.
 3. Lastly, run your host application in a third
 
-## FPGA Bitstreams
+### FPGA Bitstreams
 
 This is a summary table of FPGA implmentations for the kw-Pilot, during the course of the OPRECOMP H2020 project.
 

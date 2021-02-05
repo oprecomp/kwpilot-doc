@@ -1,6 +1,6 @@
-# kwSDK
+## kwSDK
 
-The source code for the kW demonstrator software and extensions to the virtual platform is maintained insided [OPRECOMP's repository](https://github.com/oprecomp/micro-benchmarks/tree/master/kw).
+The source code for the kW demonstrator software and extensions to the virtual platform is maintained inside [OPRECOMP's repository](https://github.com/oprecomp/micro-benchmarks/tree/master/kw).
 
 It consists of the following parts:
 
@@ -11,7 +11,7 @@ It consists of the following parts:
 Note that these are automatically included with the PULP SDK. So if you're using the SDK, the above is already available.
 
 
-## Samples
+### Samples
 
 The `samples` directory contains examples on how to write software on the POWER8 and PULP side and how to establish communication via CAPI. See the samples' Makefiles for instructions on how to link against `libcxl` and `liboprecomp`. The following samples are available:
 
@@ -21,7 +21,7 @@ The `samples` directory contains examples on how to write software on the POWER8
 Use `make run` in any of the sample directories to build the host and PULP binaries, and run them in the virtual platform. See the Makefiles for details.
 
 
-## Setup on POWER8
+### Setup on POWER8
 
 On a fresh POWER8 system, do the following to get a minimal setup that allows you to offload code to a PULP system on an FPGA attached to the machine.
 

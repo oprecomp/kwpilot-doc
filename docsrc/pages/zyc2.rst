@@ -24,17 +24,17 @@ kwPilot on cloud
 
   A prototype of kwPilot is accessible over cloud and specifically through the Zurich Heterogeneous Compute Cloud in the "Yellow Zone" of access policy (ZYC2).
 
-  The goal of ZYC2 is to provide an easy access to heterogeneous computing systems based on the IBM POWER architecture in the cloud. ZHC2 is available to OPRECOMP partners as a free-of-charge service. The focus of ZYC2 is FPGA abd GPU accelerated computing.
+  The goal of ZYC2 is to provide an easy access to heterogeneous computing systems based on the IBM POWER architecture in the cloud. ZHC2 is available to OPRECOMP partners as a free-of-charge service. The focus of ZYC2 is FPGA and GPU accelerated computing.
 
-  ZYC2 supports different FPGA platforms and provide pre-configured software environments for FPGA development to users. More precisely ZYC2 offers KVM based VMs on x86_64 hardware to run the Xilinx development tools. There are several CentOS based OS images available for different releases of the Xilinx Vivado toolset.
+  ZYC2 supports different FPGA platforms and provide pre-configured software environments for FPGA development to users. More precisely ZYC2 offers KVM based VMs on x86_64 hardware to run the Xilinx development tools. There are several CentOS-based OS images available for different releases of the Xilinx Vivado toolset.
 
   FPGA and GPU accelerators are all hosted in POWER8 and POWER9 compute nodes and can be used through Docker images managed by the cloud environment. Up to day, there is support for the following accelerator cards:
 
-  *	Nallatech 250S (Kintex KU060 FPGA + 1.92TB M.2 NVMe SSDs + 4GB DDR4 SDRAM)
-  *	Alpha Data ADM-PCIE-KU3 (Kintex KU060 FPGA + 16GB DDR3 SDRAM + 2 QSFP+ 40GbE)
+  * Nallatech 250S (Kintex KU060 FPGA + 1.92TB M.2 NVMe SSDs + 4GB DDR4 SDRAM)
+  * Alpha Data ADM-PCIE-KU3 (Kintex KU060 FPGA + 16GB DDR3 SDRAM + 2 QSFP+ 40GbE)
   * Alpha Data ADM-PCIE-8K5 (Kintex KU115 FPGA + 16GB DDR4-2400 + 2 SFP+ 10GbE)
   * Alpha Data ADM-PCIE-9V3 (Virtex VU3P-2 FPGA + 32GB DDR4-2400 + 2x QSFP28, 1x100GbE or 4x25GbE)
-  *	NVIDIA Tesla P100 (NVLINK connected Tesla P100 GPU w/ HBM1)
+  * NVIDIA Tesla P100 (NVLINK connected Tesla P100 GPU w/ HBM1)
 
   The cloud is operated in the so-called yellow zone, an IBM-controlled management zone that is dedicated to servicing customers. Each user gets a private virtual network environment created in which client-generated KVM or Docker instances are operated in an isolated manner. Each instance gets an external IP (also called floating-IP) assigned, which can be used to access the instance from a remote computer. Public IPs, are accessed through a VPN service.
 
