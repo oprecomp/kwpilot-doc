@@ -240,5 +240,3 @@ Test sample apps
            make all && make run
 
 
-kwPilot Demonstrator on ZYC2
-****************************
