@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kwPilot on cloud &mdash; kwPilot v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> kwPilot
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">kwPilot on cloud</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#kwpilot-emulator-on-zyc2">kwPilot Emulator on ZYC2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-to-zyc2">Connecting to ZYC2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getting-started-with-openstack">Getting started with OpenStack</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#login">Login</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dashboard">Dashboard</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#projects">Projects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#networks">Networks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compute">Compute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-vms">Accessing VMs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#create-transprecision-applications">Create transprecision applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#prepare-environment">Prepare environment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-sample-apps">Test sample apps</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">kwPilot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>kwPilot on cloud</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/zyc2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kwpilot-on-cloud">
+<span id="zyc2"></span><h1>kwPilot on cloud<a class="headerlink" href="#kwpilot-on-cloud" title="Permalink to this headline">¶</a></h1>
+<div class="topic">
+<p class="topic-title first">Introduction</p>
+<p>A prototype of kwPilot is accessible over cloud and specifically through the Zurich Heterogeneous Compute Cloud in the “Yellow Zone” of access policy (ZYC2).</p>
+<p>The goal of ZYC2 is to provide an easy access to heterogeneous computing systems based on the IBM POWER architecture in the cloud. ZHC2 is available to OPRECOMP partners as a free-of-charge service. The focus of ZYC2 is FPGA and GPU accelerated computing.</p>
+<p>ZYC2 supports different FPGA platforms and provide pre-configured software environments for FPGA development to users. More precisely ZYC2 offers KVM based VMs on x86_64 hardware to run the Xilinx development tools. There are several CentOS-based OS images available for different releases of the Xilinx Vivado toolset.</p>
+<p>FPGA and GPU accelerators are all hosted in POWER8 and POWER9 compute nodes and can be used through Docker images managed by the cloud environment. Up to day, there is support for the following accelerator cards:</p>
+<ul class="simple">
+<li><p>Nallatech 250S (Kintex KU060 FPGA + 1.92TB M.2 NVMe SSDs + 4GB DDR4 SDRAM)</p></li>
+<li><p>Alpha Data ADM-PCIE-KU3 (Kintex KU060 FPGA + 16GB DDR3 SDRAM + 2 QSFP+ 40GbE)</p></li>
+<li><p>Alpha Data ADM-PCIE-8K5 (Kintex KU115 FPGA + 16GB DDR4-2400 + 2 SFP+ 10GbE)</p></li>
+<li><p>Alpha Data ADM-PCIE-9V3 (Virtex VU3P-2 FPGA + 32GB DDR4-2400 + 2x QSFP28, 1x100GbE or 4x25GbE)</p></li>
+<li><p>NVIDIA Tesla P100 (NVLINK connected Tesla P100 GPU w/ HBM1)</p></li>
+</ul>
+<p>The cloud is operated in the so-called yellow zone, an IBM-controlled management zone that is dedicated to servicing customers. Each user gets a private virtual network environment created in which client-generated KVM or Docker instances are operated in an isolated manner. Each instance gets an external IP (also called floating-IP) assigned, which can be used to access the instance from a remote computer. Public IPs, are accessed through a VPN service.</p>
+</div>
+<div class="topic">
+<p class="topic-title first">kwPilot flavors</p>
+<p>The kwPilot system allows users to conduct research on TP computing, by employing PULP, i.e. the first silicon-proven processor extended with TP extensions.
+kwPilot offers two options to develop and evaluate TP software:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>kwPilot emulator: a software based system that implements the functionality of the target PULP System-on-Chip, named PULP VP. The VP combines the high-speed PULP processor simulator and high-level, fully functional models of the hardware building blocks, to provide an abstract, executable representation of the hardware to software developers and to system architects. In addition, it provides full visibility, since at any time, the user can get information regarding any part of the system (processor core, buses, peripherals, or environment models). Being able to reproduce intermittent problems or complex timing-related problems on physical hardware is difficult. Instead, PULP VP provides determinism in the form of repeatability of a test case where the user will get identical behavior over and over again.</p></li>
+<li><p>kwPilot Demonstrator: a physical device emulator, where TP software can be executed on a real PULP SoC which is overlaid on an FPGA device, delivering real execution cycles and power figures.</p></li>
+</ol>
+</div></blockquote>
+<p>Both kwPilot emulator and kwPilot Demonstrator are built on POWER-based systems, and they leverage CAPI technology, as a novel way to allow PULP cores to access coherently POWER’s main memory. This significantly allows for low-latency high-throughput memory transfers between POWER CPUs and PULP transprecision co-processors and provides an easy programming framework.</p>
+</div>
+<img alt="../_images/fig15.png" src="../_images/fig15.png" />
+<div class="section" id="kwpilot-emulator-on-zyc2">
+<h2>kwPilot Emulator on ZYC2<a class="headerlink" href="#kwpilot-emulator-on-zyc2" title="Permalink to this headline">¶</a></h2>
+<p>Throughout the following steps we will create a Virtual Machine (VM) on ZYC2 with the support of transprecision libraries and devices.</p>
+<div class="section" id="connecting-to-zyc2">
+<h3>Connecting to ZYC2<a class="headerlink" href="#connecting-to-zyc2" title="Permalink to this headline">¶</a></h3>
+<p>In order to use the ZYC2 infrastructure you will need to connect to it via a VPN client. You should have received anOpenVPN configuration file together with your ZYC2 credentials upon registration.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The OpenVPN client must be version 2.4 or later</p>
+</div>
+<div class="topic">
+<p class="topic-title first">Linux</p>
+<p>On most Linux distributions you can either import the OpenVPN configuration file to the Network Manager or use the file directly with the openvpn client.</p>
+</div>
+<div class="topic">
+<p class="topic-title first">Windows</p>
+<p>On Windows you can download the OpenVPN client software (Windows Installer) from <a class="reference external" href="https://openvpn.net/community-downloads/">here</a>. After installation you can launch the OpenVPN GUI and a small tray icon should appear. If you right click on it you can select “Import file…” and navigate to the ZYC2 OpenVPN configuration file. After successful import, the connection should appear in the menu. When you click connect you will be prompted a username and password. These are the credentials provided in the registration email.</p>
+</div>
+</div>
+<div class="section" id="getting-started-with-openstack">
+<h3>Getting started with OpenStack<a class="headerlink" href="#getting-started-with-openstack" title="Permalink to this headline">¶</a></h3>
+<p>ZYC2 runs OpenStack to provide an Infrastructure-as-a-Service cloud. This means you can create your own virtual networks and machines.</p>
+<div class="section" id="login">
+<h4>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h4>
+<p>The main point of interaction is the OpenStack Dashboard which can be reached via <a class="reference external" href="http://10.12.0.100/">http://10.12.0.100/</a></p>
+<img alt="../_images/fig2.png" src="../_images/fig2.png" />
+<p>You can login using you ZYC2 credentials.</p>
+</div>
+<div class="section" id="dashboard">
+<h4>Dashboard<a class="headerlink" href="#dashboard" title="Permalink to this headline">¶</a></h4>
+<p>After successful login you are presented an overview of your current project resource usage</p>
+<img alt="../_images/fig3.png" src="../_images/fig3.png" />
+</div>
+<div class="section" id="projects">
+<h4>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h4>
+<p>On the top left of the dashboard you can see the project you currently work with. If you click on it a drop-down list will appear of all projects, you are a member of. All members of a project can see and modify the virtual infrastructure of the project. A project also has its own resource limits. You will always be a member of your own project which is named as your username.</p>
+<img alt="../_images/fig4.png" src="../_images/fig4.png" />
+</div>
+<div class="section" id="networks">
+<h4>Networks<a class="headerlink" href="#networks" title="Permalink to this headline">¶</a></h4>
+<p>An important aspect of the infrastructure is the network. In OpenStack you may create multiple private networks that belong to your project. Think of them as your “home network”. After creation of your network you may add virtual machines to it. All machines on the same network can communicate with each other.</p>
+<p>The network configuration has already been established by ZYC2, so that your private network and the VMs connected to that can communicate with the outside world. Verify that you have a similar topology to the following.</p>
+<img alt="../_images/fig5.png" src="../_images/fig5.png" />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the previous image two VMs have already been connected to the private network (orange line) and through a virtual router they can access web (blue line). Verify that you have such configuration.</p>
+</div>
+</div>
+<div class="section" id="compute">
+<h4>Compute<a class="headerlink" href="#compute" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="details">
+<h5>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h5>
+<p>To create a virtual machine, navigate to Compute and then Instances. This gives you an overview of the current virtual machines in your project. You can click on Launch instance to create a new VM. When the wizard pops up, give the instance a name and click next.</p>
+<img alt="../_images/fig6.png" src="../_images/fig6.png" />
+</div>
+<div class="section" id="source">
+<h5>Source<a class="headerlink" href="#source" title="Permalink to this headline">¶</a></h5>
+<p>Next you can select the image you want the VM to run. Click on the arrow on the right to select the image you want to run.</p>
+<ul class="simple">
+<li><p>To select a clean Ubuntu 16.04 installation use the image “Ubuntu 16.04 POWER IBM”.</p></li>
+<li><p>To select an Ubuntu 16.04 installation preconfigured with transprecision libraries select in the “Select Boot Source” the option “Instance Snapshot” and then from the available options use the snapshot “oprecomp_test”.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In both image options please make sure that the option “Create New Volume” is set to “No” (else the VM creation may hang).</p>
+</div>
+<img alt="../_images/fig7.png" src="../_images/fig7.png" />
+</div>
+<div class="section" id="flavor">
+<h5>Flavor<a class="headerlink" href="#flavor" title="Permalink to this headline">¶</a></h5>
+<p>Now we can select a flavor of the virtual machine, meaning how many CPUs, memory and disk space it should have.</p>
+<img alt="../_images/fig8.png" src="../_images/fig8.png" />
+</div>
+<div class="section" id="network">
+<h5>Network<a class="headerlink" href="#network" title="Permalink to this headline">¶</a></h5>
+<p>Next we can select which network we want this VM to connect to. You should already have available your &lt;username&gt;-network.</p>
+<img alt="../_images/fig9.png" src="../_images/fig9.png" />
+</div>
+<div class="section" id="key-pair">
+<h5>Key Pair<a class="headerlink" href="#key-pair" title="Permalink to this headline">¶</a></h5>
+<p>All provided images use public key authentication for accessing the VMs. A public key is injected during launch of an instance. Under Key Pairyou need to add (or generate) the key you want to use.</p>
+<p>Either import you existing public keys or create a new one through the panel.</p>
+<img alt="../_images/fig10.png" src="../_images/fig10.png" />
+</div>
+<div class="section" id="verify-new-vm">
+<h5>Verify new VM<a class="headerlink" href="#verify-new-vm" title="Permalink to this headline">¶</a></h5>
+<p>Then you should be able to view your new VM on the dashboard. It may take some time to spawn it depending on the load of the management service and the requested resources.</p>
+<img alt="../_images/fig11.png" src="../_images/fig11.png" />
+</div>
+<div class="section" id="associate-floating-ip">
+<h5>Associate floating IP<a class="headerlink" href="#associate-floating-ip" title="Permalink to this headline">¶</a></h5>
+<p>As a last step before you launch you new VM you should associate a public floating IP so that you can ssh to it. In the “Actions” panel select “Associate Floating IP”.</p>
+<img alt="../_images/fig12.png" src="../_images/fig12.png" />
+<p>Then click the “+” symbol to add an IP and click the “Allocate IP”.</p>
+<img alt="../_images/fig13.png" src="../_images/fig13.png" />
+<p>Now the floating IP will also appear in the list of your instances. This is the IP you can use to communicate with your VM.</p>
+<img alt="../_images/fig14.png" src="../_images/fig14.png" />
+</div>
+<div class="section" id="security-groups">
+<h5>Security Groups<a class="headerlink" href="#security-groups" title="Permalink to this headline">¶</a></h5>
+<p>A last but important step is to adjust or review the security group rules associated with the VM. At VM creation you can select which security group to apply. In our case this was the default security group as it is the only one. Navigate to Network -&gt; Security Groups and select the group to review or modify. By default, the rules are very restrictive. Click on Add Rule and add any service (tcp/udp port) that you want to access over internal or external network. ICMP and SSH rules are already added to the default security group. This allow you to ping the VMs and use ssh for communication.</p>
+<img alt="../_images/fig16.png" src="../_images/fig16.png" />
+</div>
+</div>
+<div class="section" id="accessing-vms">
+<h4>Accessing VMs<a class="headerlink" href="#accessing-vms" title="Permalink to this headline">¶</a></h4>
+<p>There are two ways of accessing your virtual machines:</p>
+<ol class="arabic simple">
+<li><p>One is through the Console interface of the OpenStack dashboard.</p></li>
+</ol>
+<img alt="../_images/fig17.png" src="../_images/fig17.png" />
+<p>2. The other is by using SSH and potentially tunneling a VNC session over it.
+You can ssh to it with the username “ubuntu”, e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh ubuntu@10.12.2.100
+</pre></div>
+</div>
+<p>To use the graphical VNC session you must enable port forwarding with a command similar as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh -L <span class="m">5901</span>:localhost:5901 -N -f -l ubuntu <span class="m">10</span>.12.2.100
+</pre></div>
+</div>
+<p>This will forward port 5901 from/to your localhost. You can then connect to your localhost:5901 using your favorite VNC client.</p>
+</div>
+</div>
+<div class="section" id="create-transprecision-applications">
+<h3>Create transprecision applications<a class="headerlink" href="#create-transprecision-applications" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="prepare-environment">
+<h4>Prepare environment<a class="headerlink" href="#prepare-environment" title="Permalink to this headline">¶</a></h4>
+<p>The image snapshot “oprecomp_test” is an Ubuntu 16.04 image, packed with the appropriate libraries and tools you need to create your first transprecision application.</p>
+<dl class="simple">
+<dt>The VM is already packed with:</dt><dd><ul class="simple">
+<li><p>the <a class="reference external" href="https://github.com/pulp-platform/pulp-riscv-gnu-toolchain">riscv-gnu-toolchain for PULP</a>, with transprecision support (currently fp16, fp16alt, fp8). It is installed in <cite>/opt/riscv/</cite>.</p></li>
+<li><p>the <a class="reference external" href="https://github.com/pulp-platform/pulp-sdk">PULP SDK</a>, checked-out with tag 2019.12.06 and configuration ‘oprecompkw’. It is installed in <cite>/home/ubuntu/pulp-sdk</cite>.</p></li>
+<li><p>the <a class="reference external" href="https://iis-git.ee.ethz.ch/dionysios.diamantopoulos/oprecomp/tree/master/kw/libcxl">libcxl for Virtual Platform</a> that integrates with the PULP virtual platform. Host code can call into <a class="reference external" href="https://github.com/ibm-capi/libcxl">libcxl</a> as usual, but in the background the implementation launches an instance of the virtual platform to simulate the PULP system. This library is used by kw-Pilot Emulator.</p></li>
+<li><p>the <a class="reference external" href="https://iis-git.ee.ethz.ch/dionysios.diamantopoulos/oprecomp/tree/master/kw/liboprecomp">liboprecomp library</a> which is a library to offload tasks to a PULP-based accelerator reachable via <a class="reference external" href="https://github.com/ibm-capi/libcxl">libcxl</a>. This library is used by kw-Pilot Demonstrator.</p></li>
+<li><p>the <a class="reference external" href="https://github.com/oprecomp/micro-benchmarks">OPRECOMP micro-benchmarks</a>, which contain sample transprecision micro-benchmarks. It is installed in <cite>/home/ubuntu/micro-benchmarks</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="test-sample-apps">
+<h4>Test sample apps<a class="headerlink" href="#test-sample-apps" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt>nop app</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/ubuntu/micro-benchmarks/kw/samples/nop
+make all <span class="o">&amp;&amp;</span> make run
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>square app</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/ubuntu/micro-benchmarks/kw/samples/square
+make all <span class="o">&amp;&amp;</span> make run
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>blstm micro-benchmark</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /home/ubuntu/micro-benchmarks/kw/mb/blstm
+make all <span class="o">&amp;&amp;</span> make run
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, OPRECOMP
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

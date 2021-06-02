@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>kwHDK &mdash; kwPilot v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> kwPilot
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zyc2.html">kwPilot on cloud</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">kwPilot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>kwHDK</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/hdk.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="kwhdk">
+<h1>kwHDK<a class="headerlink" href="#kwhdk" title="Permalink to this headline">¶</a></h1>
+<p>The repository with the approrpiate files for kwHDK is <a class="reference external" href="https://iis-git.ee.ethz.ch/oprecomp/powerpulp">PowerPULP</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;iis-git.ee.ethz.ch:oprecomp/powerpulp.git</span></code></p>
+<p>This repository contains PowerPULP, a PULP system attached to a IBM POWER8/9 machine via the CAPI interface. We currently support the following combinations:</p>
+<ul class="simple">
+<li><p>board <code class="docutils literal notranslate"><span class="pre">ad8k5</span></code>, design <code class="docutils literal notranslate"><span class="pre">xcku115</span></code>, part <code class="docutils literal notranslate"><span class="pre">xcku115-flva1517-2-e</span></code></p></li>
+<li><p>board <code class="docutils literal notranslate"><span class="pre">adku3</span></code>, design <code class="docutils literal notranslate"><span class="pre">xcku060</span></code>, part <code class="docutils literal notranslate"><span class="pre">xcku060-ffva1156-2-e</span></code></p></li>
+</ul>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>This project uses bender [1] for dependency management (kind of), so make sure that is installed if you want to change IPs. To get started, do the following:</p>
+<p>Set the following environment variables to something reasonable for your setup:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VSIM=&quot;vsim-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VLOG=&quot;vlog-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VCOM=&quot;vcom-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VOPT=&quot;vopt-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VIVADO=&quot;vivado-2019.1.1</span> <span class="pre">vivado&quot;</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="flow">
+<h2>Flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h2>
+<p>To synthesize and implement the design for an FPGA, proceed as follows:</p>
+<ol class="arabic simple">
+<li><p>generate the IPs needed for <code class="docutils literal notranslate"><span class="pre">capi_adapter</span></code></p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``capi_adapter`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_cluster`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_soc`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_top`</span>&lt;/del&gt;`</p></li>
+<li><p>synthesize and implement the entire board</p></li>
+</ol>
+<p>Refer to <code class="docutils literal notranslate"><span class="pre">scripts/end_to_end.sh</span></code> for a full end-to-end example. The outbut <code class="docutils literal notranslate"><span class="pre">*.bit</span></code> and <code class="docutils literal notranslate"><span class="pre">*.bin</span></code> file can then be used to flash the corresponding FPGA card.</p>
+</div>
+<div class="section" id="simulation">
+<h2>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h2>
+<p>The module hierarchy is structured as follows:</p>
+<ul class="simple">
+<li><p>card top-level (see <code class="docutils literal notranslate"><span class="pre">capi</span></code> repository)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pulp_top</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hero_powerpulp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pulp_cluster</span></code> (multiple)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">riscv_core</span></code> (multiple)</p></li>
+</ul>
+<p>The following testbenches are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tb_pslse</span></code> to simulate <code class="docutils literal notranslate"><span class="pre">pulp_top</span></code> together with the CAPI interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tb_soc</span></code> to simulate <code class="docutils literal notranslate"><span class="pre">hero_powerpulp</span></code>, where the host memory is emulated as a regular AXI memory</p></li>
+</ul>
+<p>To compile Xilinx sim libraries (needed only onece), run the script <code class="docutils literal notranslate"><span class="pre">compile_simlibs.sh</span></code>.
+To perform a simulation of the PULP system with emulated host, in VSIM source the script <code class="docutils literal notranslate"><span class="pre">scripts/vsim/compile.tcl</span></code> first, and then <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_soc.tcl</span></code> after changing the binary to load in that script as desired.</p>
+<p>In order to run a full simulation with a running pslse on your machine, make sure to have run the <code class="docutils literal notranslate"><span class="pre">scripts/vsim/compile.tcl</span></code> script in your working directory first.
+Then, you’ll need three terminals to do the following:</p>
+<ol class="arabic simple">
+<li><p>First, start the RTL simulation with <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_pslse.sh</span></code> (or <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_pslse.tcl</span></code> if you’re already in vsim), and run it (<code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">-all</span></code>). This will open a server on a local port that a pslse instance can connect to. Simulation time will not advance here unless started through this port.</p></li>
+<li><p>In a second terminal, launch <code class="docutils literal notranslate"><span class="pre">pslse</span></code> which will connect to the simulator and in turn offer the pslse server on another port. See instructions on building pslse in the <code class="docutils literal notranslate"><span class="pre">capi</span></code> repository.</p></li>
+<li><p>Lastly, run your host application in a third</p></li>
+</ol>
+</div>
+<div class="section" id="fpga-bitstreams">
+<h2>FPGA Bitstreams<a class="headerlink" href="#fpga-bitstreams" title="Permalink to this headline">¶</a></h2>
+<p>This is a summary table of FPGA implmentations for the kw-Pilot, during the course of the OPRECOMP H2020 project.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Host</p></th>
+<th class="head"><p>Transprecision Device</p></th>
+<th class="head"><p>Comm/tion</p></th>
+<th class="head"><p>FPGA</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Publication</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.redbooks.ibm.com/redpapers/pdfs/redp5283.pdf">S822LC-P8</a></p></td>
+<td><p>PULP Overlay</p></td>
+<td><p><a class="reference external" href="https://www-304.ibm.com/webapp/set2/sas/f/capi/CAPI_POWER8.pdf">CAPI 1.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5">AD8K5</a></p></td>
+<td><p><a class="reference external" href="https://iis-git.ee.ethz.ch/oprecomp/powerpulp/tree/master/mappings/1clu_8core">1cluster 8cores</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/9097644">COOL CHIPS 2020</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-systems-ac922">AC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/HLS_BLSTM">BLSTM</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/8742271">FPT 2018</a>, <a class="reference external" href="https://ieeexplore.ieee.org/document/8373077">COOL CHIPS 2018</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_helloworld_1024">Hello world</a></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_tp_mult">Scalar Mult/tion</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/8825124">ASAP 2019</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/HDIFF_OCAPI">High Order Stencils</a></p></td>
+<td><p><a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-030-27562-4_29">SAMOS 2019</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://opencapi.org/">OpenCAPI 3.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p>PHRYCTORIA</p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/9150140">RAW-IPDPS 2020</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>DDR4 Controller</p></td>
+<td><p><a class="reference external" href="https://developer.arm.com/documentation/ihi0022/h/">AXI 4</a></p></td>
+<td><p><a class="reference external" href="http://www.hitechglobal.com/boards/Virtex-UltraScale-FPGA.htm">HTG-830</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/DDR4_controller">DDR4-Controller</a></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Bitstreams can be generated by following the implementation flow provided in the corresponding repository.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, OPRECOMP
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

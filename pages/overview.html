@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; kwPilot v0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="kwPilot on cloud" href="zyc2.html" />
+    <link rel="prev" title="Welcome to OPRECOMP kwPilot documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> kwPilot
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#fine-grain-transprecision-computing">Fine-Grain Transprecision Computing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#kwhdk">kwHDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#flow">Flow</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#simulation">Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fpga-bitstreams">FPGA Bitstreams</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#kwsdk">kwSDK</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-on-power8">Setup on POWER8</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#coarse-grain-transprecision-computing">Coarse-Grain Transprecision Computing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zyc2.html">kwPilot on cloud</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">kwPilot</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/overview.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>This page describes the system architecture of the OPRECOMP kW platform.</p>
+<p>The goal is to develop one computation node of an HPC system, based on a high-performance processing node (IBM POWER 8/9) and an array of interconnected controllable precision processors.
+The OPRECOMP kW demonstrator platform provides an evaluation framework to investigate scalability and functionality of the software stack. This platform is one node of an HPC system with transprecision capabilities.</p>
+<p>The kwPilot demonstrator is developed in two stages. In the first phase, the system is based on existing POWER8 - CAPI (Coherent Accelerator Processor Interface) attached FPGA prototyping system developed by IBM. The POWER8 processor is used for precise calculations, and an interconnected array of PULP based processing units with controllable precision is implemented on the FPGA.</p>
+<p>In the second phase, we have upgraded the node to a POWER9, with CAPI 2.0 connection to an advanced version of PULP, on a large-scale FPGA. This system is used to validate the approach.</p>
+<p>The actual power and performance numbers will be extracted through measurements on a dedicated ASIC that will be manufactured containing an array of the PULP based transprecision computation cores. Finally, the results on the kW system will be evaluated and they will be further projected up to a potential multi-node MW architecture.</p>
+<p>The first version of our kw demonstrator, namely, the kW-Pilot 1.0 platform, has been developed within the first phase specifications, i.e. POWER8 - CAPI1.0 attached FPGA prototyping platform.</p>
+<p>The final version of our kw demonstrator, namely, the kW-Pilot 2.0 platform, has been developed within the final phase specifications, i.e. POWER9 - CAPI2.0 attached FPGA prototyping platform.</p>
+<p>The development of the OPRECOMP kw-pilot is systematically developed in three pillars, namely the kw-pilot Hardware Development Kit (kwHDK), the kw-pilot Software Development Kit (kwSDK) and the kw-pilot Cloud Development Kit (kwCDK)</p>
+<ul class="simple">
+<li><p>The kw-pilot Hardware Development Kit (HDK) considers transprecision devices attached to a POWER8/9 node via CAPI1.0/CAPI2.0 or OpenCAPI3.0. We have experimented with inserting transprecision computing capabilities in different granularity levels. Specifically the transprecision devices can be either PULP cores or standalone acceleratos. In the former case the transprecision computing capabilities have been introduced at the instruction level, whereas at the latter case, we have designed customized hardware accelerators suppporting different precision across the computation progress.</p></li>
+<li><p>The kw-pilot Software Development Kit (SDK) describes the programming environment that enables the mapping of applications to this kw-pilot platform.</p></li>
+<li><p>The kw-pilot Cloud Development Kit (CDK) integrates the kW-Pilot platform to a cloud infrastructure of IBM Zurich Lab.</p></li>
+</ul>
+<p>The kwHDK, the kwSDK and the kwCDK are supported by different design tools, libraries and APIs as depicted in the following figure.</p>
+<img alt="../_images/kw_tools_table.png" src="../_images/kw_tools_table.png" />
+<div class="section" id="fine-grain-transprecision-computing">
+<h2>Fine-Grain Transprecision Computing<a class="headerlink" href="#fine-grain-transprecision-computing" title="Permalink to this headline">¶</a></h2>
+<p>In the fine-grain transprecision aspect of our kW-Pilot platform, we define a high-performance processing node (IBM POWER 8/9) and an array of interconnected controllable precision PULP processors (<a class="reference external" href="https://pulp-platform.org/">https://pulp-platform.org/</a>).
+The development of the OPRECOMP kw-pilot is systematically developed in three pillars, namely the kw-pilot Hardware Development Kit (kwHDK), the kw-pilot Software Development Kit (kwSDK) and the kw-pilot Cloud Development Kit (kwCDK), as depicted in the following figure.</p>
+<img alt="../_images/fig1.png" src="../_images/fig1.png" />
+<ul class="simple">
+<li><p>The kw-pilot Hardware Development Kit (HDK.</p></li>
+<li><p>The kw-pilot Software Development Kit (SDK) describes the programming environment that enables the mapping of applications to this kw-pilot platform.</p></li>
+<li><p>The kw-pilot Cloud Development Kit (CDK) integrates the kW-Pilot platform to a cloud infrastructure of IBM Zurich Lab.</p></li>
+</ul>
+<div class="section" id="kwhdk">
+<h3>kwHDK<a class="headerlink" href="#kwhdk" title="Permalink to this headline">¶</a></h3>
+<p>The repository with the approrpiate files for kwHDK is <a class="reference external" href="https://iis-git.ee.ethz.ch/oprecomp/powerpulp">PowerPULP</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">git&#64;iis-git.ee.ethz.ch:oprecomp/powerpulp.git</span></code></p>
+<p>This repository contains PowerPULP, a PULP system attached to a IBM POWER8/9 machine via the CAPI interface. We currently support the following combinations:</p>
+<ul class="simple">
+<li><p>board <code class="docutils literal notranslate"><span class="pre">ad8k5</span></code>, design <code class="docutils literal notranslate"><span class="pre">xcku115</span></code>, part <code class="docutils literal notranslate"><span class="pre">xcku115-flva1517-2-e</span></code></p></li>
+<li><p>board <code class="docutils literal notranslate"><span class="pre">adku3</span></code>, design <code class="docutils literal notranslate"><span class="pre">xcku060</span></code>, part <code class="docutils literal notranslate"><span class="pre">xcku060-ffva1156-2-e</span></code></p></li>
+</ul>
+<div class="section" id="getting-started">
+<h4>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h4>
+<p>This project uses bender [1] for dependency management (kind of), so make sure that is installed if you want to change IPs. To get started, do the following:</p>
+<p>Set the following environment variables to something reasonable for your setup:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VSIM=&quot;vsim-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VLOG=&quot;vlog-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VCOM=&quot;vcom-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VOPT=&quot;vopt-10.7b</span> <span class="pre">-64&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">VIVADO=&quot;vivado-2019.1.1</span> <span class="pre">vivado&quot;</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="flow">
+<h4>Flow<a class="headerlink" href="#flow" title="Permalink to this headline">¶</a></h4>
+<p>To synthesize and implement the design for an FPGA, proceed as follows:</p>
+<ol class="arabic simple">
+<li><p>generate the IPs needed for <code class="docutils literal notranslate"><span class="pre">capi_adapter</span></code></p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``capi_adapter`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_cluster`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_soc`</span>&lt;/del&gt;`</p></li>
+<li><p><span class="raw-html-m2r"><del>synthesize ``pulp_top`</span>&lt;/del&gt;`</p></li>
+<li><p>synthesize and implement the entire board</p></li>
+</ol>
+<p>Refer to <code class="docutils literal notranslate"><span class="pre">scripts/end_to_end.sh</span></code> for a full end-to-end example. The outbut <code class="docutils literal notranslate"><span class="pre">*.bit</span></code> and <code class="docutils literal notranslate"><span class="pre">*.bin</span></code> file can then be used to flash the corresponding FPGA card.</p>
+</div>
+<div class="section" id="simulation">
+<h4>Simulation<a class="headerlink" href="#simulation" title="Permalink to this headline">¶</a></h4>
+<p>The module hierarchy is structured as follows:</p>
+<ul class="simple">
+<li><p>card top-level (see <code class="docutils literal notranslate"><span class="pre">capi</span></code> repository)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pulp_top</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hero_powerpulp</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pulp_cluster</span></code> (multiple)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">riscv_core</span></code> (multiple)</p></li>
+</ul>
+<p>The following testbenches are available:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tb_pslse</span></code> to simulate <code class="docutils literal notranslate"><span class="pre">pulp_top</span></code> together with the CAPI interface</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tb_soc</span></code> to simulate <code class="docutils literal notranslate"><span class="pre">hero_powerpulp</span></code>, where the host memory is emulated as a regular AXI memory</p></li>
+</ul>
+<p>To compile Xilinx sim libraries (needed only onece), run the script <code class="docutils literal notranslate"><span class="pre">compile_simlibs.sh</span></code>.
+To perform a simulation of the PULP system with emulated host, in VSIM source the script <code class="docutils literal notranslate"><span class="pre">scripts/vsim/compile.tcl</span></code> first, and then <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_soc.tcl</span></code> after changing the binary to load in that script as desired.</p>
+<p>In order to run a full simulation with a running pslse on your machine, make sure to have run the <code class="docutils literal notranslate"><span class="pre">scripts/vsim/compile.tcl</span></code> script in your working directory first.
+Then, you’ll need three terminals to do the following:</p>
+<ol class="arabic simple">
+<li><p>First, start the RTL simulation with <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_pslse.sh</span></code> (or <code class="docutils literal notranslate"><span class="pre">scripts/vsim/run_pslse.tcl</span></code> if you’re already in vsim), and run it (<code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">-all</span></code>). This will open a server on a local port that a pslse instance can connect to. Simulation time will not advance here unless started through this port.</p></li>
+<li><p>In a second terminal, launch <code class="docutils literal notranslate"><span class="pre">pslse</span></code> which will connect to the simulator and in turn offer the pslse server on another port. See instructions on building pslse in the <code class="docutils literal notranslate"><span class="pre">capi</span></code> repository.</p></li>
+<li><p>Lastly, run your host application in a third</p></li>
+</ol>
+</div>
+<div class="section" id="fpga-bitstreams">
+<h4>FPGA Bitstreams<a class="headerlink" href="#fpga-bitstreams" title="Permalink to this headline">¶</a></h4>
+<p>This is a summary table of FPGA implmentations for the kw-Pilot, during the course of the OPRECOMP H2020 project.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Host</p></th>
+<th class="head"><p>Transprecision Device</p></th>
+<th class="head"><p>Comm/tion</p></th>
+<th class="head"><p>FPGA</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Publication</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.redbooks.ibm.com/redpapers/pdfs/redp5283.pdf">S822LC-P8</a></p></td>
+<td><p>PULP Overlay</p></td>
+<td><p><a class="reference external" href="https://www-304.ibm.com/webapp/set2/sas/f/capi/CAPI_POWER8.pdf">CAPI 1.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-8k5">AD8K5</a></p></td>
+<td><p><a class="reference external" href="https://iis-git.ee.ethz.ch/oprecomp/powerpulp/tree/master/mappings/1clu_8core">1cluster 8cores</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/9097644">COOL CHIPS 2020</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-systems-ac922">AC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/HLS_BLSTM">BLSTM</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/8742271">FPT 2018</a>, <a class="reference external" href="https://ieeexplore.ieee.org/document/8373077">COOL CHIPS 2018</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_helloworld_1024">Hello world</a></p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_tp_mult">Scalar Mult/tion</a></p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/8825124">ASAP 2019</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://www-355.ibm.com/systems/power/openpower/tgcmDocumentRepository.xhtml?aliasId=CAPI">CAPI 2.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/HDIFF_OCAPI">High Order Stencils</a></p></td>
+<td><p><a class="reference external" href="https://link.springer.com/chapter/10.1007%2F978-3-030-27562-4_29">SAMOS 2019</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>Accelerator Overlay</p></td>
+<td><p><a class="reference external" href="https://opencapi.org/">OpenCAPI 3.0</a></p></td>
+<td><p><a class="reference external" href="https://www.alpha-data.com/dcp/products.php?product=adm-pcie-9v3">AD9V3</a></p></td>
+<td><p>PHRYCTORIA</p></td>
+<td><p><a class="reference external" href="https://ieeexplore.ieee.org/document/9150140">RAW-IPDPS 2020</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.ibm.com/products/power-system-ic922">IC922-P9</a></p></td>
+<td><p>DDR4 Controller</p></td>
+<td><p><a class="reference external" href="https://developer.arm.com/documentation/ihi0022/h/">AXI 4</a></p></td>
+<td><p><a class="reference external" href="http://www.hitechglobal.com/boards/Virtex-UltraScale-FPGA.htm">HTG-830</a></p></td>
+<td><p><a class="reference external" href="https://github.com/oprecomp/DDR4_controller">DDR4-Controller</a></p></td>
+<td><p>N/A</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note: Bitstreams can be generated by following the implementation flow provided in the corresponding repository.</p>
+</div>
+</div>
+<div class="section" id="kwsdk">
+<h3>kwSDK<a class="headerlink" href="#kwsdk" title="Permalink to this headline">¶</a></h3>
+<p>The source code for the kW demonstrator software and extensions to the virtual platform is maintained inside <a class="reference external" href="https://github.com/oprecomp/micro-benchmarks/tree/master/kw">OPRECOMP’s repository</a>.</p>
+<p>It consists of the following parts:</p>
+<ul class="simple">
+<li><p><strong>boot:</strong> The bootloader that is embedded in the accelerator on a boot ROM. Loads a binary from host memory and executes it.</p></li>
+<li><p><strong>libcxl:</strong> Simulation implementation of libcxl to interface with the virtual platform.</p></li>
+<li><p><strong>liboprecomp:</strong> Library to offload PULP binaries onto the accelerator in conjunction with the bootloader.</p></li>
+</ul>
+<p>Note that these are automatically included with the PULP SDK. So if you’re using the SDK, the above is already available.</p>
+<div class="section" id="samples">
+<h4>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">samples</span></code> directory contains examples on how to write software on the POWER8 and PULP side and how to establish communication via CAPI. See the samples’ Makefiles for instructions on how to link against <code class="docutils literal notranslate"><span class="pre">libcxl</span></code> and <code class="docutils literal notranslate"><span class="pre">liboprecomp</span></code>. The following samples are available:</p>
+<ul class="simple">
+<li><p><strong>samples/nop:</strong> Sends a WED to the PULP side which in turn prints it to the console.</p></li>
+<li><p><strong>samples/square:</strong> Generates a list of random integers and sends them to PULP to calculate their squares, then checks the result. This example includes DMA transfers and the setup of a proper Work Element Descriptor.</p></li>
+</ul>
+<p>Use <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">run</span></code> in any of the sample directories to build the host and PULP binaries, and run them in the virtual platform. See the Makefiles for details.</p>
+</div>
+<div class="section" id="setup-on-power8">
+<h4>Setup on POWER8<a class="headerlink" href="#setup-on-power8" title="Permalink to this headline">¶</a></h4>
+<p>On a fresh POWER8 system, do the following to get a minimal setup that allows you to offload code to a PULP system on an FPGA attached to the machine.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span># install libcxl
+git clone https://github.com/ibm-capi/libcxl.git
+pushd libcxl
+git checkout v1.6
+make
+sudo make install
+popd
+
+# install liboprecomp
+pushd liboprecomp
+make
+sudo make install
+popd
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="coarse-grain-transprecision-computing">
+<h2>Coarse-Grain Transprecision Computing<a class="headerlink" href="#coarse-grain-transprecision-computing" title="Permalink to this headline">¶</a></h2>
+<p>In the coarse-grain transprecision aspect of our kW-Pilot platform, we define a high-performance processing node (IBM POWER 8/9) and an array of interconnected controllable precision accelerators.
+We have extended the open-source OC-Accel framework of OpenPOWER consortium with transprecision capabilities.
+The OpenCAPI Transprecision Acceleration Framework, abbreviated as OC-Accel-TP, is a framework that helps you implement your FPGA acceleration solutions with OpenCAPI technology.
+The framework is a fork of OC-Accel Framework, that also includes some examples with transprecision capabilities.</p>
+<p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp">https://github.com/oprecomp/oc-accel-tp</a></p>
+<p>In this case, we define:</p>
+<ul class="simple">
+<li><p>The kw-pilot Hardware Development Kit (HDK</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p>Core design: <a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/hardware">https://github.com/oprecomp/oc-accel-tp/tree/master/hardware</a></p></li>
+<li><p>Transprecision extensions: <a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/transprecision">https://github.com/oprecomp/oc-accel-tp/tree/master/transprecision</a></p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>The kw-pilot Software Development Kit (SDK) describes the programming environment that enables the mapping of applications to this kw-pilot platform.</p></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/software">https://github.com/oprecomp/oc-accel-tp/tree/master/software</a></p></li>
+<li><p>Transprecision extensions: <a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/transprecision">https://github.com/oprecomp/oc-accel-tp/tree/master/transprecision</a></p></li>
+<li><p>Example: <a class="reference external" href="https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_tp_mult/sw">https://github.com/oprecomp/oc-accel-tp/tree/master/actions/hls_tp_mult/sw</a></p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>The kw-pilot Cloud Development Kit (CDK) integrates the kW-Pilot platform to a cloud infrastructure of IBM Zurich Lab.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zyc2.html" class="btn btn-neutral float-right" title="kwPilot on cloud" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to OPRECOMP kwPilot documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, OPRECOMP
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
